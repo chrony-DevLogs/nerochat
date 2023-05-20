@@ -25,7 +25,7 @@
             if($filterRes != null){
                 session_start();
                 $_SESSION["username"] = $username;
-                header("Location: chat.php");
+                header("Location: index.php");
                 
             }
         }
