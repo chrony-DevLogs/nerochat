@@ -43,16 +43,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./logos/nerochatlogo.svg">
+    <link rel="stylesheet" href="./loginStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
-        <input type="text" name="name" placeholder="username"><br>
-        <input type="text" name="passwd" placeholder="password"><br>
-        login: <input type="radio" value="log in" name="sOrL" id="sOrL">
-        sign up: <input type="radio" value="sign up" name="sOrL" id="sOrL2"><br>
+    <form class="form" method="POST" action="<?=$_SERVER['PHP_SELF']?>">
+        <div  class="cont1">
+            <div class="insideCount">
+                <h1 class="logo">NERO<br>CHAT</h1>
+                <div class="radspan">
+                    <div class="sar sar1">
+                        <span>log in</span><br>
+                        <span>sign up</span> 
+                    </div>
+                    <div class="sar">
+                        <input type="radio" value="log in" name="sOrL" id="sOrL"><br>
+                        <input type="radio" value="sign up" name="sOrL" id="sOrL2"><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cont2">
+            <div class="insideCount insideCount2">
+                <h1 class="intro">START CHATTING</h1>
+                <input class="inp" type="text" name="name" placeholder="username"><br>
+                <input class="inp" type="password" name="passwd" placeholder="password"><br>
+                <input class="sub" type="submit" value="SELECT" id="sub">
+            </div>
+        </div>
 
-        <input type="submit" value="SELECT" id="sub">
     </form>
 
     <script>

@@ -65,7 +65,6 @@
     text-align: center;
     background: #1E1E1E;
     color: snow;
-
 }
 #sendbtn{
     height: 50px;
@@ -75,14 +74,16 @@
 
 }
 
-#sendbtn:active {
-    animation-name: myAnimation ;
-    animation-duration: 0.1s;
-  }
 
 #sendbtn:hover{
     background-color: rgb(190, 190, 190);
 }
+
+#sendbtn:active {
+    background-color: rgb(255, 255, 255);
+
+  }
+
 
 .logoenter{
     width: auto;
