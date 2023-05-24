@@ -8,14 +8,14 @@
         $conn = mysqli_connect("localhost","root","");
         $db = mysqli_select_db($conn,"nerochat");
 
-        if($username == "" || $passwd == "" ){
-            die("<h1> ERROR USERNAME AND PASSWORD MUST BE NOT NULL </h1>");
+        if(($username == "" || $passwd == "") || (strlen($username) < 3) || (strlen($passwd) < 8)){
+            echo("<h1 class='ro'> ERROR USERNAME MUST BE AT LEAST 3 CHARACTER LONG <br><br> AND PASSWORD MUST BE ATLEAST 8 CHARACTER LONG </h1>");
         }elseif($sOrL == "sign up"){
             $query = "INSERT INTO user VALUES('$username','$passwd')";
             if(!mysqli_query($conn,$query)){
-                die("<h1>CANNOT SIGN UP</h1>");
+                echo("<h1 class='ro'>CANNOT SIGN UP</h1>");
             }else{
-                echo("<h1>SIGN UP SUCESS</h1>");
+                echo("<h1 class='ro'>SIGN UP SUCESS</h1>");
             };
             
         }else{
@@ -27,6 +27,8 @@
                 $_SESSION["username"] = $username;
                 header("Location: index.php");
                 
+            }else{
+                echo("<h1 class='ro'>USER NAME OR PASSWORD IS NOT CORRECT</h1>");
             }
         }
         mysqli_close($conn);
@@ -49,6 +51,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Document</title>
+        <style>
+    .ro{ 
+            color: red;
+            text-align: center;
+            background-color: #0B0B0B;
+            font-family: 'Press Start 2P', cursive;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+    </style>
 </head>
 <body>
     <form class="form" method="POST" action="<?=$_SERVER['PHP_SELF']?>">
@@ -69,8 +82,7 @@
         </div>
         <div class="cont2">
             <div class="insideCount insideCount2">
-                <h1 class="intro">START CHATTING</h1>
-                <input class="inp" type="text" name="name" placeholder="username"><br>
+            <h1 class="intro fa" id="intr">START CHATTING </h1><h1 class="fa" id="curser"></h1> <br>                <input class="inp" type="text" name="name" placeholder="username"><br>
                 <input class="inp" type="password" name="passwd" placeholder="password"><br>
                 <input class="sub" type="submit" value="SELECT" id="sub">
             </div>
@@ -79,16 +91,40 @@
     </form>
 
     <script>
-        document.getElementById("sub").disabled = true
+        document.getElementsByName("sOrL").forEach((e)=>{
+            e.checked =false;
+        })
+        const rap = document.getElementById("sub")
+        rap.disabled = true
+
         document.getElementsByName("sOrL").forEach(e => {
             e.addEventListener("click",()=>{    
                 if(e.checked){
                     document.getElementById("sub").value = e.value;
                     document.getElementById("sub").disabled = false
-
                 }
             })
         })
+
+        function animate(target,str){
+            target.innerHTML = "";
+            i=0;
+
+            setInterval(()=>{
+                if(i > str.length -1){
+                    target.innerHTML = "";
+                    i = 0;
+                    target.style.width = 0;
+                }
+                target.innerHTML += str[i];
+                i++
+            },400)
+            
+        }
+        const target = document.getElementById("intr")
+        const str = "START CHATTING";
+        animate(target,str)
+
     </script>
 </body>
 </html>

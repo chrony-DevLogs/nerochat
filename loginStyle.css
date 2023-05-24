@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.ro{ 
+    color: red;
+    text-align: center;
+    background-color: #0B0B0B;
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+}
 
 .logo{
     font-family: 'Press Start 2P', cursive;
@@ -63,6 +70,25 @@ input[type="radio"] {
     color: snow;
     font-size: 30px;
 }
+.fa{
+    display: inline;
+    color: snow;
+}
+#curser{
+    position: relative;
+    left: -30px;
+    top: -9px;
+    background: snow;
+    border: 1px solid #FFF;
+    padding: 8px 8px 1px 1px;
+    animation: cursorAnimator 0.6s infinite;
+}
+
+@keyframes cursorAnimator {
+    0% {background-color: snow;}
+    50%{background: none;}
+    100% {background-color: snow;}
+}
 
 .insideCount2 *{
     margin: 20px;
@@ -81,6 +107,8 @@ input[type="radio"] {
 }
 
 .sub{
+    transition: 0.4s;
+    text-transform: uppercase;
     color: #0C8AFF;
     height: 40px;
     width: 175px;
@@ -89,16 +117,21 @@ input[type="radio"] {
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
     border: none;
+    
 }
 
 #sub:hover{
     background-color: rgb(190, 190, 190);
+    
 }
 
 #sub:active {
+    transition: 0s;
     background-color: rgb(255, 255, 255);
 
 }
+
+
 
 @media (max-width: 900px) {
     .form{
@@ -109,11 +142,20 @@ input[type="radio"] {
         width: 100vw;
     }
     .intro{
-
         font-size: 20px;
     }
 
     body{
         scroll-behavior: smooth;
     }
+
+    #curser{
+        padding:0px 0px 5px 5px;
+    }
+
+    .cont1{
+        height: 50vh;
+    }
+
+
   }

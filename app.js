@@ -1,4 +1,5 @@
 function updateMessages() {
+    const textArea = document.getElementById("recive");
     var xhr = new XMLHttpRequest();
   
     // Configure the request
@@ -6,20 +7,15 @@ function updateMessages() {
   
     // Set up a callback function to handle the response
     xhr.onreadystatechange = function() {
+
       if (xhr.readyState === 4 && xhr.status === 200) {
         // Update the textarea with the response data
-        let res = xhr.responseText.split("|");
-        res.pop();
-        if (res !== "") {
-          var textarea = document.getElementById("recive");
-          textarea.value = ""; // Clear previous messages
-          res.forEach(function(e) {
-            let stuff = e.split(",");
-            const message = `${stuff[0]} : ${stuff[1]} : ${stuff[2]}\n`;
-            textarea.value += message; // Append new message
-            textarea.scrollTop = textarea.scrollHeight;
-          });
-        }
+        let res = JSON.parse(xhr.responseText)
+        textArea.value = ""
+
+        res.forEach(item => {
+          textArea.value += item["name"] + " : " + item["message"] + " : " + item["time"] + "\n"; 
+        });
       }
     };
   

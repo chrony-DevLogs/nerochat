@@ -22,10 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="icon" href="./logos/nerochatlogo.svg">
+    <title>Nero chat</title>
 
 </head>
 
 <body>
+
     <form class="head" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
         <input type="submit" value="LOG OUT" name="logout" class="logout">
         <h1 class="title">NERO CHAT</h1>

@@ -65,6 +65,7 @@
     text-align: center;
     background: #1E1E1E;
     color: snow;
+
 }
 #sendbtn{
     height: 50px;
@@ -77,6 +78,7 @@
 
 #sendbtn:hover{
     background-color: rgb(190, 190, 190);
+    
 }
 
 #sendbtn:active {
